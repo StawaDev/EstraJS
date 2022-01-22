@@ -1,7 +1,7 @@
 {
   "name": "estrajs",
   "version": "0.0.1",
-  "description": "A Basic Anime Image API Created By Stawa",
+  "description": "A Basic Wrapper Anime Image API with Many Features",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
   "scripts": {
