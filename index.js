@@ -1,4 +1,4 @@
-import { BASE_URL, get_api, produce } from './base.js';
+import { get_api, produce } from './base.js';
 
 export class EstraClient {
     constructor() {
