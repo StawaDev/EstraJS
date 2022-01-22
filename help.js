@@ -5,22 +5,35 @@ var ANIGAMES_LIST = "1. Truth, 2. Dare"
 var ALL_LIST = {
     "Sfw": SFW_LIST,
     "Nsfw": NSFW_LIST,
-    "Games": GAMES_LIST
-}
+    "Games": GAMES_LIST,
+    "AniGames": ANIGAMES_LIST,
+};
 
 class EstraHelpClass {
     sfw() {
         return SFW_LIST;
-    }
+    };
+
     nsfw() {
         return NSFW_LIST;
-    }
+    };
+
     games() {
         return GAMES_LIST;
-    }
+    };
+
+    anigames() {
+        return ANIGAMES_LIST;
+    };
+
     all() {
         return ALL_LIST;
-    }
+    };
 };
 
-//let EstraHelp = new EstraHelpClass;
+const EstraHelp = new EstraHelpClass // Optional
+
+export {
+    EstraHelp,
+    EstraHelpClass
+};
