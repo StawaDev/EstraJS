@@ -1,20 +1,21 @@
 {
   "name": "estrajs",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Basic Anime Image API Created By Stawa",
   "main": "index.js",
+  "typings": "./typings/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "stawadev",
   "license": "MIT",
   "keywords": [
-    "estrapy-api",
+    "estra-api",
     "anime",
     "anime gif",
     "roleplay gif"
   ],
-  "homepage": "https://github.com/StawaDev/EstraJS-API",
+  "homepage": "https://github.com/StawaDev/EstraJS",
   "type": "module",
   "dependencies": {
     "node-fetch": "^3.1.1"
