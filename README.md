@@ -17,6 +17,19 @@
 - Async Supports
 - User Friendly Code
 
+### Installation
+If you want to install stable version, try the following command:
+
+```
+npm i estrajs
+```
+
+Or, if you want to install the newest version (Sometimes not stable), try the following command:
+
+```
+npm i https://github.com/StawaDev/EstraJS
+```
+
 ### Async Examples
 
 ```js
@@ -48,5 +61,5 @@ Client.sfw.run().then((output) => {
 ### Links
 
 - [Documentation](https://stawa.gitbook.io/estraapi-documentation)
-- [Homepage](https://github.com/StawaDev/EstraDart)
+- [Homepage](https://github.com/StawaDev/EstraJS)
 - [Application Programming Interface](https://estra-api.herokuapp.com)
