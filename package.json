@@ -1,6 +1,6 @@
 {
   "name": "estrajs",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A Basic Wrapper Anime Image API with Many Features",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
