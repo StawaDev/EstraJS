@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
 
 export var BASE_URL = "https://estra-api.herokuapp.com/api/";
+export var Current_IV = '0.1.1'
 
 export async function get_api(Url=String, JsonType=Boolean, Type=String) {
     const response = await fetch(BASE_URL + Url);
