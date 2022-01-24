@@ -10,23 +10,23 @@ var ALL_LIST = {
 };
 
 class EstraHelpClass {
-    sfw() {
+    async sfw() {
         return SFW_LIST;
     };
 
-    nsfw() {
+    async nsfw() {
         return NSFW_LIST;
     };
 
-    games() {
+    async games() {
         return GAMES_LIST;
     };
 
-    anigames() {
+    async anigames() {
         return ANIGAMES_LIST;
     };
 
-    all() {
+    async all() {
         return ALL_LIST;
     };
 };
