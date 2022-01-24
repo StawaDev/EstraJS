@@ -1,5 +1,5 @@
 <h1 align="center">
-    Estrapy-API
+    EstraJS
 </h1>
 
 <h2 align="center">
@@ -28,6 +28,37 @@ Or, if you want to install the newest version (Sometimes not stable), try the fo
 
 ```
 npm i https://github.com/StawaDev/EstraJS
+```
+
+### AutoUpdate
+Don't want to miss our new version? Turn on the "auto-update" feature! Try the following code:
+
+```js
+import { AutoUpdate } from 'estrajs/autoupdate';
+
+const UpdateClient = new AutoUpdate();
+await UpdateClient.config(true, true, true);
+// ↑
+// 1. Power on/off, 2. Change Log enabled/disabled, 3. Output enabled/disabled
+```
+
+### All Endpoints Help
+Confused enough trying to use this module? Don't worry! This function will be returning a list of all endpoints or all endpoints in a list. If you don't want to use this function, you can read it on our [Documentation](https://stawa.gitbook.io/estraapi-documentation/api-examples/estralist)
+
+```js
+// First method, easy to use, but not customizable.
+import { EstraHelp } from 'estrajs/help';
+
+console.log(await EstraHelp.sfw());
+console.log(await EstraHelp.all());
+
+// Second method, complicated to use, but customizable.
+import { EstraHelpClass } from 'estrajs/help';
+
+const Helper = new EstraHelpClass();
+
+console.log(await Helper.sfw());
+console.log(await Helper.all());
 ```
 
 ### Async Examples
