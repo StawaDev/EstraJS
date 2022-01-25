@@ -10,10 +10,13 @@
   "author": "stawadev",
   "license": "MIT",
   "keywords": [
+    "api",
     "estra-api",
     "anime",
     "anime gif",
-    "roleplay gif"
+    "roleplay gif",
+    "osu",
+    "osu api"
   ],
   "homepage": "https://github.com/StawaDev/EstraJS",
   "type": "module",
