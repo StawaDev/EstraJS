@@ -14,6 +14,7 @@
 - Truth or Dare
 - Anime GIFs
 - Anime Waifu/Husbando Picture
+- OSU API Wrapper
 - Async Supports
 - User Friendly Code
 
@@ -61,7 +62,10 @@ console.log(await Helper.sfw());
 console.log(await Helper.all());
 ```
 
-### Async Examples
+### Examples
+Here's some examples of how to use this module, if you need more examples, don't worry! In our Github Homepage, we got all examples to use function in this module.
+
+#### Async Examples
 
 ```js
 import { EstraClient } from "estrajs";
@@ -76,7 +80,7 @@ async function func1() {
 func1();
 ```
 
-### Promise Examples
+#### Promise Examples
 
 ```js
 import { EstraClient } from "estrajs";
@@ -84,9 +88,12 @@ import { EstraClient } from "estrajs";
 
 const Client = new EstraClient();
 
-Client.sfw.run().then((output) => {
-    console.log(output)}
-);
+const Example = async() => { // It generate 5 times! Max 10.
+    const output = await Client.sfw.hug(5)
+    console.log(output);
+}
+
+Example()
 ```
 
 ### Links
