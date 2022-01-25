@@ -1,6 +1,6 @@
 import { get_api, produce } from './base.js';
 
-export class EstraClient {
+class EstraClient {
     constructor() {
         this.sfw = {
                 async run(generate = Number) {
@@ -169,3 +169,23 @@ export class EstraClient {
             };
     };
 };
+
+class OsuClient {
+    constructor(client_id, client_secret) {
+        this.client_id = client_id;
+        this.client_secret = client_secret;
+    }
+
+    async osuprofile(username=String) {
+        return get_api(`osu/?user=${username}&client_id=${this.client_id}&client_secret=${this.client_secret}`)
+    }
+
+    async osubeatmap(beatmap_id=Number) {
+        return get_api(`osubeatmap/?id=${beatmap_id}&client_id=${this.client_id}&client_secret=${this.client_secret}`)
+    }
+}
+
+export {
+    EstraClient,
+    OsuClient
+}
