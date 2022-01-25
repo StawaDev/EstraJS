@@ -3,7 +3,7 @@ import { EstraClient } from "estrajs";
 
 const Client = new EstraClient();
 
-// Async Examples
+// Async Function Examples
 async function sfw() {
     console.log(await Client.sfw.run())
     console.log(await Client.sfw.poke(2)) // You can generate multiple times! Max 10.

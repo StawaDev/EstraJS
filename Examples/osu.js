@@ -1,7 +1,7 @@
 import { OsuClient } from '../index.js';
 
-var clients_id = 11944
-var clients_secret = "t07F6m8ikFnOl4Mxtzc0eXlHIZuVEjw123pPYnwW"
+var clients_id = '' // Put your own osu client_id
+var clients_secret = '' // Put your own osu client_secret
 
 const OsuClients = new OsuClient(clients_id, clients_secret);
 

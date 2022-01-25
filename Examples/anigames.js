@@ -3,7 +3,7 @@ import { EstraClient } from "estrajs";
 
 const Client = new EstraClient();
 
-// Async Examples
+// Async Function Examples
 async function anigames() {
     const  data = await Client.anigames.shipper_waifu("Stawa")
     console.log(data);

@@ -3,7 +3,7 @@ import { EstraClient } from "estrajs";
 
 const Client = new EstraClient();
 
-// Async Examples
+// Async Function Examples
 async function nsfw() {
     console.log(await Client.nsfw.kill())
     console.log(await Client.nsfw.yaoi(2)) // You can generate multiple times! Max 10.

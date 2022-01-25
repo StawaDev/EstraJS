@@ -3,7 +3,7 @@ import { EstraClient } from "estrajs";
 
 const Client = new EstraClient();
 
-// Async Examples
+// Async Function Examples
 async function games() {
     const data = await Client.games.truth(5) //You can generate multiple times! Max 10.
     console.log(data);
