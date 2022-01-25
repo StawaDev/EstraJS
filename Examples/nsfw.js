@@ -12,6 +12,10 @@ async function nsfw() {
 nsfw();
 
 // Promise Examples
-Client.nsfw.yuti(5).then((output) => { // It generate 5 times! Max 10.
+const Example = async() => { // It generate 5 times! Max 10.
+    const output = await Client.nsfw.yuri(5)
     console.log(output);
-});
+}
+
+Example()
+

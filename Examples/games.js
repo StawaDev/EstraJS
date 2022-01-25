@@ -11,8 +11,10 @@ async function games() {
 
 games();
 
-// Promise Example
-
-Client.games.truth(2).then((output) => { // It generate 5 times! Max 10.
+// Promise Examples
+const Example = async() => { // It generate 5 times! Max 10.
+    const output = await Client.games.truth(2)
     console.log(output);
-});
+}
+
+Example()

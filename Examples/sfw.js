@@ -12,6 +12,9 @@ async function sfw() {
 sfw();
 
 // Promise Examples
-Client.sfw.hug(5).then((output) => { // It generate 5 times! Max 10.
+const Example = async() => { // It generate 5 times! Max 10.
+    const output = await Client.sfw.hug(5)
     console.log(output);
-});
+}
+
+Example()

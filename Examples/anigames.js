@@ -14,10 +14,11 @@ async function anigames() {
 
 anigames();
 
-// Promise Example
-
-Client.anigames.waifu().then((output) => {
+// Promise Examples
+const Example = async() => { // It generate 5 times! Max 10.
+    const output = await Client.anigames.waifu()
     console.log(output); // Full JSON Response
     console.log("Character Name: " + output["character_name"])
     console.log("Image Link: " + output["link"])}
-);
+
+Example()
