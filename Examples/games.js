@@ -17,4 +17,20 @@ const Example = async() => { // It generate 5 times! Max 10.
     console.log(output);
 }
 
-Example()
+Example();
+
+// Async Shipper Examples
+async function shipper() {
+    const data = await Client.shipper.shipper(true, true, 'Player1', 'None', 'Player2', 'None', 'None', {height: 1920, width: 1080})
+                                              // save, open, player, player_image, player2, player2_image, background, background_size
+}
+
+shipper();
+
+// Promise Shipper Examples
+const Example_Shipper = async() => {
+    await Client.games.set_shipper(true, true, 'Player1', 'None', 'Player2', 'None', 'None', {height: 1920, width: 1080});
+                                   // save, open, player, player_image, player2, player2_image, background, background_size
+}
+
+Example_Shipper();
