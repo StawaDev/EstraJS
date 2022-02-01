@@ -1,6 +1,6 @@
 {
   "name": "estrajs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Basic Wrapper Anime Image API with Many Features",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
@@ -21,6 +21,9 @@
   "homepage": "https://github.com/StawaDev/EstraJS",
   "type": "module",
   "dependencies": {
-    "node-fetch": "^3.1.1"
+    "node-fetch": "^3.1.1",
+    "open": "^8.4.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
   }
 }
