@@ -5,7 +5,7 @@ import {fileURLToPath} from 'url';
 import open from 'open';
 
 export var BASE_URL = "https://estra-api.herokuapp.com/api/";
-export var Current_IV = '0.1.1'
+export var Current_IV = '0.1.2'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PathImage = __dirname + '\\shipper.jpg'
