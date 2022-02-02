@@ -41,6 +41,9 @@ const UpdateClient = new AutoUpdate();
 await UpdateClient.config(true, true, true);
 // ↑
 // 1. Power on/off, 2. Change Log enabled/disabled, 3. Output enabled/disabled
+
+// Short version
+const UpdateClient = new AutoUpdate().config(true, true, true);
 ```
 
 ### All Endpoints Help
