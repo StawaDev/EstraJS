@@ -1,58 +1,57 @@
-import fetch from 'node-fetch';
-import { BASE_URL, Current_IV } from './base.js';
-import { exec } from "child_process";
+import fetch from "node-fetch";
+import { compare } from 'compare-versions';     
+import { exec } from "child_process";        
 
-const version_url = BASE_URL.replace('/api', '/version');
-
-async function get_data() {
-    const response = await fetch(version_url);
-    const json = await response.text();
-    const obj = JSON.parse(json);
-    return obj;
-}
-
-const data = await get_data();
-const Current_V = data.EstraJS.Version;
 
 export class AutoUpdate {
-    async update() {
-        exec(`npm i estrajs@${Current_V}`, async (error, stdout) => {
-            if (error) {
-                throw error;
-            }
-            return stdout;
-        });
+    constructor() {
+        this.url = 'https://estra-api.vercel.app/version/'
+        this.data = {
+            "language": "nodejs"
+        }
+        this.headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+        this._version = '0.1.7'
     }
 
-    async config(power=true, output=Boolean, change_log=Boolean) {
-        if (power === true) {
-            if (change_log === false, undefined && output === false, undefined) {
-                return;
-            }
+    async req() {
+        const req = await fetch(this.url, {
+            method: 'POST',
+            body: JSON.stringify(this.data)
+        });
 
-            if (change_log === true && output === true) {
-                if (Current_IV < Current_V) {
-                    await this.update();
-                    console.log("EstraJS - It seems you got an older version of EstraJS, AutoUpdate will update it to the newest version.");
-                    return;
+        return JSON.parse(await req.text());
+    }
+
+    async update() {
+        var req = await this.req()
+
+        if (compare(this._version, req.version, '=')) {
+            return;
+        }
+
+        if (compare(this._version, req.version, '<')) {
+            exec(`npm i estrajs@latest`, async (error, stdout) => {
+                if (error) {
+                    throw error;
                 }
-                console.log("EstraJS - Version is Up to Date.");
-                return;
-            }
+                throw new Error(stdout);
+            });
+        }
 
-            if (change_log === true) {
-                console.log(await data.EstraJS['Change Logs']);
-                return;
-            }
+    }
 
-            if (output === true) {
-                if (Current_IV < Current_V) {
-                    console.log("EstraJS - It seems you got an older version of EstraJS, AutoUpdate will update it to the newest version.");
-                    return;
-                }
-                console.log("EstraJS - Version is Up to Date.");
-                return;
-            }
+    async reminder() {
+        var req = await this.req()
+
+        if (compare(this._version, req.version, '=')) {
+            return;
+        }
+
+        if (compare(this._version, req.version, '<')) {
+            return `[ Reminder from EstraJS ] : A newer version of Estrapy is available (${req.version})`;
         }
     }
 }

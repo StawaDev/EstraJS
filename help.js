@@ -1,15 +1,17 @@
-var SFW_LIST = "1. Hug, 2. Run, 3. Smile, 4. Headpat, 5. Neko, 6. Bite, 7. Highfive, 8. Poke, 9. Slap"
-var NSFW_LIST = "1. Kill, 2.Yuri, 3. Yuri"
-var GAMES_LIST = "1. Truth, 2. Dare, 3. Shipper"
-var ANIGAMES_LIST = "1. Truth, 2. Dare, 3. Waifu, 4. Husbando, 5. Waifu_Shipper, 6. Husbando_Shipper"
+var SFW_LIST = "1. hug, 2. run, 3. smile, 4. headpat, 5. neko, 6. bite, 7. highfive, 8. poke, 9. slap"
+var NSFW_LIST = "1. kill, 2. yaoi , 3. yuri"
+var GAMES_LIST = "1. truth, 2. dare, 3. shipper"
+var ANIGAMES_LIST = "1. truth, 2. dare, 3. waifu , 4. husbando, 5. shipper_waifu, 6. shipper_husbando"
+var OSU_LIST = "1. profile, 2. beatmap"
 var ALL_LIST = {
     "Sfw": SFW_LIST,
     "Nsfw": NSFW_LIST,
     "Games": GAMES_LIST,
     "AniGames": ANIGAMES_LIST,
+    "Osu": OSU_LIST,
 };
-
-class EstraHelpClass {
+ 
+export class Help {
     async sfw() {
         return SFW_LIST;
     };
@@ -29,11 +31,4 @@ class EstraHelpClass {
     async all() {
         return ALL_LIST;
     };
-};
-
-const EstraHelp = new EstraHelpClass // Optional
-
-export {
-    EstraHelp,
-    EstraHelpClass
 };

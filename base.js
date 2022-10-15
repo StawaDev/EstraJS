@@ -1,63 +1,56 @@
+import { fileURLToPath } from 'url';
+import { get_api } from "./http.js";
+import { InvalidNumber } from "./errors.js";
 import fetch from "node-fetch";
 import fs from "fs";
 import path from 'path';
-import {fileURLToPath} from 'url';
 import open from 'open';
 
-export var BASE_URL = "https://estra-api.herokuapp.com/api/";
-export var Current_IV = '0.1.2'
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PathImage = __dirname + '\\shipper.jpg'
+export var base_url = "https://estra-api.vercel.app/api/v1/";
 
-export async function get_api(Url=String, JsonType=Boolean, Type=String) {
-    const response = await fetch(BASE_URL + Url);
-    if (!response.ok) {
-        throw new Error(`Http Error, ${response.status}`);
+export class Base {
+    constructor () {
+        this._filename = fileURLToPath(import.meta.url);
+        this._dirname = path.dirname(this._filename);
+        this.PathImage = this._dirname + '\\shipper.jpg'
+    }
+
+    async produce(total = Number, route = String, type = String) {
+        const generated_urls = []
+        var i = 0;
+
+        if (total > 10 || total < 2) {
+            throw new InvalidNumber('Cannot generate more than 10 or less than 1 request at a time.')
+        }
+
+        while (true) {
+            i++;
+
+            const results = await get_api(route);
+            generated_urls.push(results[type]);
+
+            if (i === total) break;
+        }
+        return generated_urls
     };
-    const json = await response.text();
-    const obj = JSON.parse(json);
-    if (JsonType === false) {
-        return obj[Type];
-    }
-    return obj;
-};
 
-export async function produce(Total=Number, Url=String, Type=String) {
-    const LIST = [];
-    var i = 0;
-    if (Total > 10) {
-        throw new Error('Total must be lower than 10')
-    }
-    if (Total === 0 || (Total === 1)) {
-        throw new Error('Total must be greater than 1')
+    async download(url = String) {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        fs.writeFileSync(this.PathImage, buffer);
     }
 
-    while (true) {
-        i++;
-        const API = await get_api(Url, false, Type);
-        LIST.push(API)
-        if (i === Total) break;
+    async get_image(url = String, save = Boolean, open_file = Boolean) {
+        if (save === true && open_file === false) {
+            return await download(url);
+        }
+        if (save === false || open_file === false) {
+            return;
+        }
+        if (save === true || open_file === true) {
+            return await download(url), open(this.PathImage);
+        }
     }
-    return LIST
-};
 
-async function download(url) {
-    const response = await fetch(url);
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    fs.writeFileSync(PathImage, buffer);
-}
-
-export async function get_image(save=Boolean, open_file=Boolean, url) {
-    if (save === true && open_file === false) {
-        return await download(url);
-    }
-    if (save === false || open_file === false) {
-        return;
-    }
-    if (save === true || open_file === true) {
-        await download(url), open(PathImage);
-        return;
-    }
 }
