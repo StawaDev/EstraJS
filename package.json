@@ -1,9 +1,9 @@
 {
   "name": "estrajs",
   "version": "0.1.7",
-  "description": "A Basic Wrapper Anime Image API with Many Features",
+  "description": "An Easy-to-Use Wrapper Anime Images API with Many Others Features",
   "main": "client.js",
-  "typings": "./typings/index.d.ts",
+  "typings": "./typings/client.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
