@@ -1,24 +1,25 @@
-import { OsuClient } from '../index.js';
+import { OsuClient } from 'estrajs';
 
-var clients_id = '' // Put your own osu client_id
+var clients_id = 1234 // Put your own osu client_id      
 var clients_secret = '' // Put your own osu client_secret
 
 const OsuClients = new OsuClient(clients_id, clients_secret);
 
 // Async Function Examples
-async function osuclient() {
-    console.log(await OsuClients.osubeatmap(2405223)) // Must be a Beatmap_ID
-    console.log(await OsuClients.osuprofile('Stawa')) // Can be UserID or Username
+async function profile() {
+    const profile = await OsuClients.profile('Stawa'); // Can be Player's UserID or Username
+
+    console.log(profile.avatar_url);
+    console.log(profile.location);
 }
 
-osuclient();
+profile();
 
-// Promise Examples
-const Example = async() => {
-    const output = await OsuClients.osuprofile('Stawa')
-    console.log(output.playstyle)
-    // or,
-    console.log(output['statistics']['ranked_score'])
+async function beatmap() {
+    const beatmap = await OsuClients.beatmap(2405223);
+
+    console.log(beatmap.mode)
+    console.log(beatmap.id)
 }
 
-Example()
+beatmap();

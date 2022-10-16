@@ -1,20 +1,22 @@
 import { EstraClient } from "estrajs";
-// or const EstraClient = require('estrajs');
 
 const Client = new EstraClient();
 
-// Async Function Examples
+// Async Function Example        
 async function sfw() {
-    console.log(await Client.sfw.run())
-    console.log(await Client.sfw.poke(2)) // You can generate multiple times! Max 10.
+    const hug = await Client.Sfw.hug();
+    const run = await Client.Sfw.run();
+
+    console.log(hug.url);
+    console.log(run.url);
 }
 
 sfw();
 
-// Promise Examples
-const Example = async() => { // It generate 5 times! Max 10.
-    const output = await Client.sfw.hug(5)
+// Promise Example
+const promise_example = async () => {
+    const output = await Client.sfw.hug(5);
     console.log(output);
 }
 
-Example()
+promise_example();

@@ -1,24 +1,35 @@
 import { EstraClient } from "estrajs";
-// or const EstraClient = require('estrajs');
 
 const Client = new EstraClient();
 
-// Async Function Examples
-async function anigames() {
-    const  data = await Client.anigames.shipper_waifu("Stawa")
-    console.log(data);
-    console.log("Player: " + data["player"])
-    console.log("Character Name: " + data["character"]);
-    console.log("Percentage: " + data["percentage"])
+// Async Function Example
+async function shipper_player() {
+    const data = await Client.AniGames.shipper_waifu("Stawa");
+
+    console.log("Player: " + data.player);
+    console.log("Character Name: " + data.character_name);
+    console.log("Percentage: " + data.percentage);
 }
 
-anigames();
+shipper_player();
 
-// Promise Examples
-const Example = async() => { // It generate 5 times! Max 10.
-    const output = await Client.anigames.waifu()
-    console.log(output); // Full JSON Response
-    console.log("Character Name: " + output["character_name"])
-    console.log("Image Link: " + output["link"])}
+// Second Example
+async function truth_dare() {
+    const truth = await Client.AniGames.truth();
+    const dare = await Client.AniGames.dare();
 
-Example()
+    console.log(`Truth: ${truth.text}`);
+    console.log(`Dare: ${dare.text}`);
+
+};
+
+truth_dare();
+
+// Promise Example
+const promise_example = async () => {
+    const output = await Client.AniGames.waifu();
+    console.log(`Character Name: ${output.character_name}`);
+    console.log(`Image Link: ${output.url}`);
+};
+
+promise_example();
